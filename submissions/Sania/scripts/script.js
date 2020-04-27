@@ -91,3 +91,45 @@ const points = (games) => {
     return count;
 };
 console.log(points(['1:0', '2:0', '3:0', '4:0', '2:1', '1:3', '1:4', '2:3', '2:4', '3:4']));
+
+const getPlanetName = (id) => {
+    var name;
+    switch (id) {
+        case 1:
+            name = 'Mercury';
+            break;
+        case 2:
+            name = 'Venus';
+            break;
+        case 3:
+            name = 'Earth';
+            break;
+        case 4:
+            name = 'Mars';
+            break;
+        case 5:
+            name = 'Jupiter';
+            break;
+        case 6:
+            name = 'Saturn';
+            break;
+        case 7:
+            name = 'Uranus';
+            break;
+        case 8:
+            name = 'Neptune';
+    }
+
+    return name;
+};
+
+console.log(getPlanetName(2));
+
+const abbrevName = (name) => {
+    const getArray = name.split(' ');
+    const getInitials = getArray[0].substr(0, 1).toUpperCase() + '.' + getArray[1].substr(0, 1).toUpperCase();
+
+    return getInitials;
+};
+
+console.log(abbrevName('Sam Harris'));
