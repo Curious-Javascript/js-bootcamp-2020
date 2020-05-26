@@ -11,7 +11,7 @@
 
 Create link to original repository and name it `upstream`:
 
-`git remote add upstream https://github.com/zahar-g/js-bootcamp-2020.git`
+`git remote add upstream https://github.com/Curious-Javascript/js-bootcamp-2020.git`
 
 Fetch updates without updating local files:
 
@@ -27,7 +27,7 @@ Push changes to your repository:
 
 ### How to create Pull Request
 
-1. Fork repo by clicking button 'Fork' in the top right corner. 
+1. Fork repo by clicking button 'Fork' in the top right corner.
 
 2. Clone your forked repository to your local machine with command:
 
@@ -39,7 +39,7 @@ Push changes to your repository:
 
 4. Add your new (or changed) files to git index with command:
 
-`git add -A` 
+`git add -A`
 
 - or exact names of files if you do not want to commit all changes:
 
@@ -58,7 +58,7 @@ Add commit message by pressing key `A`. The press `Esc`, write `:wq` and press `
 7. Go to https://github.com/zahar-g/js-bootcamp-2020/compare. Choose new branch from your forked repository and press 'Create Pull Request' button.
 Don't forget to add title and description in PR regarding your changes.
 
-## Useful information 
+## Useful information
 
 ### Books
 
