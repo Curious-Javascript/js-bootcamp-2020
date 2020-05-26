@@ -1,0 +1,97 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.wrapper {
+    max-width: 450px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #9d00ff;
+    margin: 0 auto;
+}
+
+
+.container__label, .container__content {
+    padding: 14px 20px;
+}
+
+.container__label {
+    display: block;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: 0.1s;
+}
+
+
+.container__label:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+
+.container__label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    width: 12px;
+    height: 6px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
+    background-size: contain; /* пишем contain, чтоб картинка вписалась в размер 12x6 */
+    transition: transform 0.4s;
+}
+
+.container__content {
+    /*background-color: white;*/
+    color: white;
+    background-color: #5b5b5b;
+    line-height: 1.6;
+    font-size: .85em;
+    display: none;
+}
+
+
+.container__input {
+    display: none;
+}
+
+.container__input:checked ~ .container__content {
+    display: block;
+}
+
+.container__input:checked ~ .container__label:after {
+    /*transform: rotate(180deg);*/
+    transform: translateY(-50%) rotate(0.5turn);
+}
+
+.container__img {
+    /*background-size: cover;*/
+    width: 410px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.container__img img {
+    width: 100%;
+    position: absolute;
+    transition: .4s;
+    opacity: .6;
+    cursor: pointer;
+
+}
+
+.container__img img:hover {
+    opacity: 1;
+}
+
+.big_image img {
+    top: -125px;
+}
+
+.container__btn--click{
+    display: none;
+}
