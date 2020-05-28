@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/zahar-g/js-bootcamp-2020#readme",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.0.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.2",
