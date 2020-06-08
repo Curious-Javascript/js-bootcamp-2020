@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arrayOfArray</title>
+</head>
+<body>
+<form name="concatArrays">
+  <label for="inputArrayid">"Свернуть" массив</label>
+  <input type="text" name="key" id="inputArrayid" value="[1, 2, 3], [4, 5], [6]"/>
+  <input type="button" onclick="concatArray(inputArray.value)" value="Вперед!"/>
+  <div id="result"></div>
+  <p></p>
+  <label for="arrEvery1id">Правда что </label>
+  <input type="text" name="key" id="arrEvery1id" value="every([NaN, NaN, NaN], isNaN)"/>
+  <input type="submit" onclick="every(arrEvery1, isNaN, this)" value="Узнать!"/>
+  <p></p>
+  <label for="arrEvery2id">Правда что </label>
+  <input type="text" name="key" id="arrEvery2id" value="every([NaN, NaN, 4], isNaN)"/>
+  <input type="button" onclick="every(arrEvery2, isNaN, this)" value="Узнать!"/>
+  <div id="resultEvery"></div>
+  <p></p>
+  <label for="arrSome1id">Правда что </label>
+  <input type="text" name="key" id="arrSome1id" value="some([NaN, 3, 4], isNaN)"/>
+  <input type="button" onclick="some(arrSome1, isNaN, this)" value="Узнать!"/>
+  <p></p>
+  <label for="arrSome2id">Правда что </label>
+  <input type="text" name="key" id="arrSome2id" value="some([2, 3, 4], isNaN)"/>
+  <input type="button" onclick="some(arrSome2, isNaN, this)" value="Узнать!"/>
+  <div id="resultSome"></div>
+</form>
+<script src="index.js"></script>
+
+
+
+
+
+</body>
+</html>
