@@ -23,7 +23,6 @@ const createBackground = () => {
     color[randomInteger(1, 10)];
 };
 
-// eslint-disable-next-line no-unused-vars
 const startInterval = () => {
   intervalValue = setInterval(
     createBackground,
@@ -45,13 +44,11 @@ const stopIntervalWithTimeout = () => {
 
 const dateBlock = document.querySelector('.data__res');
 
-// eslint-disable-next-line no-unused-vars
 const onClickDate = () => {
   const date = new Date();
   dateBlock.innerHTML = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 };
 
-// eslint-disable-next-line no-unused-vars
 const onClickDateLa = () => {
   let options = {
     timeZone: 'America/Los_Angeles',
@@ -66,7 +63,6 @@ const onClickDateLa = () => {
   dateBlock.innerHTML = new Date().toLocaleString('ru-RU', options);
 };
 
-// eslint-disable-next-line no-unused-vars
 const onClickSydney = () => {
   let options = {
     timeZone: 'Australia/Sydney',
