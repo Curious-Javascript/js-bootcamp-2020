@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="interval">
+  <div class="interval__grid">
+    <div class="interval__block" style="width: 16px; height: 16px; border: 1px solid #000;"></div>
+    <input type="text" class="interval__input interval__input--interval">
+    <button class="interval__button interval__button--start" onclick="startInterval()">Start</button>
+    <button class="interval__button interval__button--stop" onclick="stopInterval()">Stop</button>
+  </div>
+  <input type="text" class="interval__input interval__input--timeout">
+  <button class="interval__button interval__button--apply" onclick="stopIntervalWithTimeout()">Apply</button>
+</div>
+<div class="data">
+  <div class="data__res"></div>
+  <button class="data__button data__button--data" onclick="onClickDate()">Time</button>
+  <button class="data__button data__button--la" onclick="onClickDateLa()">LA date</button>
+  <button class="data__button data__button--sydney" onclick="onClickSydney()">Sydney date</button>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
