@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Title</title>
+  <style>
+    .interval__block--change-color{
+      margin: 20px;
+      width: 30px;
+      height: 30px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+<div class="interval__wrapper">
+  <input class='interval__input' type="text" placeholder='Time in m/s'>
+  <button class='interval__button'>Запустить интервал</button>
+  <div class="interval__block--change-color"></div>
+  <button class="interval__button--stop">Остановить интервал</button>
+</div>
+<div class="date__wrapper">
+  <button class="date__button">Узнать время проведенное на странице</button>
+  <div class="date__output"></div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
