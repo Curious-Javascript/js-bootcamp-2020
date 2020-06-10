@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Title</title>
+  <style>
+    .block__box--change-color {
+      width: 30px;
+      height: 30px;
+      border: 1px solid black;
+    }
+
+    .block__box--change-color, .timeout__wrapper, .interval__wrapper, .date__wrapper {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="block__wrapper">
+  <div class="block__box--change-color"></div>
+</div>
+<div class="interval__wrapper">
+  <input class='interval__input' type="text" placeholder='Time in m/s'>
+  <button class='interval__button'>Запустить интервал</button>
+  <button class="interval__button--stop">Остановить интервал</button>
+</div>
+<div class="timeout__wrapper">
+  <input class="timeout__input" type="text" placeholder='Time in m/s'>
+  <button class="timeout__button" type="button">Остановить вакханалию</button>
+</div>
+<div class="date__wrapper">
+  <div class="page__time">
+    <button class="page__button">Узнать время проведенное на странице</button>
+    <div class="page__output"></div>
+  </div>
+  <div class="LA__time">
+    <button class="LA__button">Время в LA</button>
+    <div class="LA__output"></div>
+  </div>
+  <div class="sidney__time">
+    <button class="sidney__button">Время в Сидней</button>
+    <div class="sidney__output"></div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
