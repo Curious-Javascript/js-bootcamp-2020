@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <style>
+    body {
+      background: linear-gradient(110deg, #f93d66, #6d47d9);
+    }
+    article{
+      margin: 50px 0;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: white;
+    }
+    .article__inner-content{
+      display: flex;
+    }
+    .article__title{
+      color: black;
+    }
+    .article__image img{
+      margin: 10px;
+      width: 100px;
+      height: 100px;
+    }
+    .article__description{
+      margin-top: 10px;
+    }
+
+    .wrapper {
+      width: 800px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <button class="wrapper__button" type="button">Типа перчатка Таноса</button>
+</div>
+
+<template>
+  <article class="article">
+    <a class="article__title"></a>
+    <div class="article__inner-content">
+      <div class="article__image">
+        <img class="image" src="" alt="No Image">
+      </div>
+      <div class="article__description"></div>
+    </div>
+    <div class="article__author">Author: <span class="author__name"></span></div>
+    <div class="article__create-at">published <span class="create__time"></span></div>
+  </article>
+</template>
+<script src="main.js"></script>
+</body>
+</html>
