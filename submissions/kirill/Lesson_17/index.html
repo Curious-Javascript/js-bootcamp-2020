@@ -19,6 +19,8 @@
     }
     .article__title{
       color: black;
+      font-size: 18px;
+      font-weight: bold;
     }
     .article__image img{
       margin: 10px;
@@ -28,16 +30,29 @@
     .article__description{
       margin-top: 10px;
     }
-
+    .article__author, .article__create-at{
+      color: grey;
+    }
     .wrapper {
       width: 800px;
       margin: 0 auto;
+    }
+    .wrapper__button{
+      margin: 50px 0 0 0;
+    }
+    .button{
+      text-decoration: none;
+      padding: 5px 10px;
+      background-color: white;
+      box-shadow: 1px 1px 1px black;
     }
   </style>
 </head>
 <body>
 <div class="wrapper">
-  <button class="wrapper__button" type="button">Типа перчатка Таноса</button>
+  <div class="wrapper__button">
+    <a class="button" href="" type="button" target="_blank">Open 10 more News</a>
+  </div>
 </div>
 
 <template>
