@@ -1,6 +1,16 @@
 (function () {
-  const wrapper = document.querySelector('.wrapper');
-  const button = document.querySelector('.wrapper__button');
+  const content = document.querySelector('.content');
+  const button = document.querySelector('.search__button');
+  const input = document.querySelector('.search__input');
+  const pages = document.querySelectorAll('.footer__item');
+  for (let i = 0; i < pages.length; i++) {
+    pages[i].addEventListener('click', function () {
+      let articles = document.querySelectorAll('.article');
+      articles.forEach((n) => n.remove());
+      pageRender(defaultSearch, pages[i].innerText);
+    });
+  }
+
   const template = document
     .querySelector('template')
     .content.querySelector('article');
@@ -8,7 +18,7 @@
   const API_KEY = '156be9d7440f4a6c9ef2e997ed3a22aa';
   const postsCount = '10';
   const sortBy = 'publishedAt';
-  const defaultSearch = 'javascript';
+  let defaultSearch = 'javascript';
   let defaultPage = 1;
 
   function pageRender(search, page) {
@@ -36,12 +46,18 @@
             item.publishedAt,
           );
 
-          wrapper.appendChild(elem);
+          content.appendChild(elem);
         });
-      });
+      })
+      .catch((err) => alert(err));
   }
 
   button.addEventListener('click', function () {
+    let articles = document.querySelectorAll('.article');
+    articles.forEach((n) => n.remove());
+    if (input.value.trim()) {
+      defaultSearch = input.value.trim();
+    }
     pageRender(defaultSearch, defaultPage++);
   });
 
