@@ -8,51 +8,120 @@
     body {
       background: linear-gradient(110deg, #f93d66, #6d47d9);
     }
-    article{
+
+    article {
       margin: 50px 0;
       padding: 20px;
       border-radius: 10px;
       background-color: white;
     }
-    .article__inner-content{
+
+    .article__inner-content {
       display: flex;
     }
-    .article__title{
+
+    .article__title {
       color: black;
       font-size: 18px;
       font-weight: bold;
     }
-    .article__image img{
+
+    .article__image img {
       margin: 10px;
       width: 100px;
       height: 100px;
     }
-    .article__description{
+
+    .article__description {
       margin-top: 10px;
     }
-    .article__author, .article__create-at{
+
+    .article__author, .article__create-at {
       color: grey;
     }
+
     .wrapper {
       width: 800px;
       margin: 0 auto;
     }
-    .wrapper__button{
+
+    .header {
       margin: 50px 0 0 0;
+      display: grid;
+      grid-template-columns: 300px 200px;
     }
-    .button{
+
+    .wrapper__search {
+      display: flex;
+    }
+
+    .search__input {
+      display: flex;
+    }
+
+    .search__button {
       text-decoration: none;
       padding: 5px 10px;
       background-color: white;
       box-shadow: 1px 1px 1px black;
     }
+
+    .footer__list {
+      display: grid;
+      grid-auto-flow: column;
+      max-width: 380px;
+      margin: 0 auto 45px auto;
+      list-style: none;
+    }
   </style>
 </head>
 <body>
 <div class="wrapper">
-  <div class="wrapper__button">
-    <a class="button" href="" type="button" target="_blank">Open 10 more News</a>
-  </div>
+  <header class="header">
+    <div class="wrapper__search">
+      <input class="search__input" type="text" placeholder="javascript">
+      <button class="search__button" type="button">Search</button>
+    </div>
+    <div class="wrapper__pagination">
+      <label for="checkbox">Auto-scroll</label>
+      <input id="checkbox" type="checkbox">
+    </div>
+  </header>
+  <div class="content" id="content"></div>
+  <footer class="footer">
+    <ul class="footer__list">
+      <li class="footer__item">
+        <button class="button-1">1</button>
+      </li>
+      <li class="footer__item">
+        <button class="button-2">2</button>
+      </li>
+      <li class="footer__item">
+        <button class="button-3">3</button>
+      </li>
+      <li class="footer__item">
+        <button class="button-4">4</button>
+      </li>
+      <li class="footer__item">
+        <button class="button-5">5</button>
+      </li>
+      <li class="footer__item">
+        <button class="button-6">6</button>
+      </li>
+      <li class="footer__item">
+        <button class="button-7">7</button>
+      </li>
+      <li class="footer__item">
+        <button class="button-8">8</button>
+      </li>
+      <li class="footer__item">
+        <button class="button-9">9</button>
+      </li>
+      <li class="footer__item">
+        <button class="button-10">10</button>
+      </li>
+    </ul>
+  </footer>
 </div>
 
 <template>
