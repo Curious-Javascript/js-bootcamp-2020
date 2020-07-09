@@ -48,7 +48,7 @@
     .header {
       margin: 50px 0 0 0;
       display: grid;
-      grid-template-columns: 300px 200px;
+      grid-template-columns: 300px 200px 200px;
     }
 
     .wrapper__search {
@@ -81,6 +81,15 @@
     <div class="wrapper__search">
       <input class="search__input" type="text" placeholder="javascript">
       <button class="search__button" type="button">Search</button>
+    </div>
+    <div class="wrapper__sort">
+      <label>
+        <select name="sort" id="sort">
+          <option value="publishedAt" selected>New</option>
+          <option value="popularity">Top</option>
+          <option value="relevancy">More closely</option>
+        </select>
+      </label>
     </div>
     <div class="wrapper__pagination">
       <label for="checkbox">Auto-scroll</label>

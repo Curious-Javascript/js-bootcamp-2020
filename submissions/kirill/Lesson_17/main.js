@@ -3,13 +3,21 @@
   const button = document.querySelector('.search__button');
   const input = document.querySelector('.search__input');
   const pages = document.querySelectorAll('.footer__item');
+  const sort = document.querySelector('#sort');
   for (let i = 0; i < pages.length; i++) {
     pages[i].addEventListener('click', function () {
       let articles = document.querySelectorAll('.article');
       articles.forEach((n) => n.remove());
-      pageRender(defaultSearch, pages[i].innerText);
+      pageRender(defaultSearch, sortBy, pages[i].innerText);
     });
   }
+
+  sort.addEventListener('change', function () {
+    sortBy = sort.value;
+    let articles = document.querySelectorAll('.article');
+    articles.forEach((n) => n.remove());
+    pageRender(defaultSearch, sortBy, defaultPage);
+  });
 
   const template = document
     .querySelector('template')
@@ -17,13 +25,13 @@
 
   const API_KEY = '156be9d7440f4a6c9ef2e997ed3a22aa';
   const postsCount = '10';
-  const sortBy = 'publishedAt';
+  let sortBy = 'publishedAt';
   let defaultSearch = 'javascript';
   let defaultPage = 1;
 
-  function pageRender(search, page) {
+  function pageRender(search, sort, page) {
     fetch(
-      `https://newsapi.org/v2/everything?q=${search}&sortBy=${sortBy}&page=${page}&pageSize=${postsCount}&apiKey=${API_KEY}`,
+      `https://newsapi.org/v2/everything?q=${search}&sortBy=${sort}&page=${page}&pageSize=${postsCount}&apiKey=${API_KEY}`,
     )
       .then((response) => {
         return response.json();
@@ -58,7 +66,7 @@
     if (input.value.trim()) {
       defaultSearch = input.value.trim();
     }
-    pageRender(defaultSearch, defaultPage++);
+    pageRender(defaultSearch, sortBy, defaultPage++);
   });
 
   function publishDate(date) {
@@ -106,5 +114,5 @@
     }
   }
 
-  pageRender(defaultSearch, defaultPage);
+  pageRender(defaultSearch, sortBy, defaultPage);
 })();
