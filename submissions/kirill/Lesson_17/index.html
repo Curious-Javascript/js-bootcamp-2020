@@ -4,78 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Title</title>
-  <style>
-    body {
-      background: linear-gradient(110deg, #f93d66, #6d47d9);
-    }
-
-    article {
-      margin: 50px 0;
-      padding: 20px;
-      border-radius: 10px;
-      background-color: white;
-    }
-
-    .article__inner-content {
-      display: flex;
-    }
-
-    .article__title {
-      color: black;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .article__image img {
-      margin: 10px;
-      width: 100px;
-      height: 100px;
-    }
-
-    .article__description {
-      margin-top: 10px;
-    }
-
-    .article__author, .article__create-at {
-      color: grey;
-    }
-
-    .wrapper {
-      width: 800px;
-      margin: 0 auto;
-    }
-
-    .header {
-      margin: 50px 0 0 0;
-      display: grid;
-      grid-template-columns: 300px 200px 200px;
-    }
-
-    .wrapper__search {
-      display: flex;
-    }
-
-    .search__input {
-      display: flex;
-    }
-
-    .search__button {
-      text-decoration: none;
-      padding: 5px 10px;
-      background-color: white;
-      box-shadow: 1px 1px 1px black;
-    }
-
-    .footer__list {
-      display: grid;
-      grid-auto-flow: column;
-      max-width: 380px;
-      margin: 0 auto 45px auto;
-      list-style: none;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="error__wrapper">
+  <div class="error">
+    <div class="error__img">
+      <img src="https://img.icons8.com/cotton/2x/error--v1.png" alt="">
+    </div>
+    <div class="error__info">
+      <div class="error__message"></div>
+    </div>
+  </div>
+</div>
 <div class="wrapper">
   <header class="header">
     <div class="wrapper__search">
@@ -96,6 +37,7 @@
       <input id="checkbox" type="checkbox">
     </div>
   </header>
+
   <div class="content" id="content"></div>
   <footer class="footer">
     <ul class="footer__list">
@@ -132,6 +74,8 @@
     </ul>
   </footer>
 </div>
+
+
 
 <template>
   <article class="article">

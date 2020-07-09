@@ -4,6 +4,9 @@
   const input = document.querySelector('.search__input');
   const pages = document.querySelectorAll('.footer__item');
   const sort = document.querySelector('#sort');
+  const errorWrapper = document.querySelector('.error__wrapper');
+  const error = document.querySelector('.error__message');
+
   for (let i = 0; i < pages.length; i++) {
     pages[i].addEventListener('click', function () {
       let articles = document.querySelectorAll('.article');
@@ -57,7 +60,17 @@
           content.appendChild(elem);
         });
       })
-      .catch((err) => alert(err));
+      .catch((err) => {
+        errorWrapper.style.display = 'block';
+        error.textContent = err.message;
+
+        setTimeout(function () {
+          errorWrapper.style.display = 'none';
+          this.sort.disabled = 'true';
+          input.disabled = 'true';
+          button.disabled = 'true';
+        }, 2000);
+      });
   }
 
   button.addEventListener('click', function () {
