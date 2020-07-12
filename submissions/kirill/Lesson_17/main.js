@@ -73,6 +73,18 @@
       });
   }
 
+  input.addEventListener('keydown', logKey);
+  function logKey(e) {
+    if (e.code === 'Enter') {
+      let articles = document.querySelectorAll('.article');
+      articles.forEach((n) => n.remove());
+      if (input.value.trim()) {
+        defaultSearch = input.value.trim();
+      }
+      pageRender(defaultSearch, sortBy, defaultPage);
+    }
+  }
+
   button.addEventListener('click', function () {
     let articles = document.querySelectorAll('.article');
     articles.forEach((n) => n.remove());
