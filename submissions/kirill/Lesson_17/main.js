@@ -1,24 +1,22 @@
-(function () {
+(function() {
   const content = document.querySelector('.content');
-  const button = document.querySelector('.search__button');
+  const searchButton = document.querySelector('.search__button');
   const input = document.querySelector('.search__input');
-  const pages = document.querySelectorAll('.footer__item');
+  const footer = document.querySelector('.footer');
   const sort = document.querySelector('#sort');
+
+  // Error Notify
   const errorWrapper = document.querySelector('.error__wrapper');
   const error = document.querySelector('.error__message');
 
-  for (let i = 0; i < pages.length; i++) {
-    pages[i].addEventListener('click', function () {
-      let articles = document.querySelectorAll('.article');
-      articles.forEach((n) => n.remove());
-      pageRender(defaultSearch, sortBy, pages[i].innerText);
-    });
-  }
+  // Pagination
+  let currentPage = document.querySelector('#current-page');
+  let allPages = document.querySelector('#all-pages');
 
-  sort.addEventListener('change', function () {
+
+  sort.addEventListener('change', function() {
     sortBy = sort.value;
-    let articles = document.querySelectorAll('.article');
-    articles.forEach((n) => n.remove());
+    removeArticles();
     pageRender(defaultSearch, sortBy, defaultPage);
   });
 
@@ -47,7 +45,7 @@
           item.urlToImage
             ? (elem.querySelector('.image').src = item.urlToImage)
             : (elem.querySelector('.image').src =
-                'https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png');
+              'https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png');
           elem.querySelector('.article__description').textContent =
             item.description;
           item.author
@@ -59,25 +57,30 @@
 
           content.appendChild(elem);
         });
+
+        currentPage.textContent = defaultPage;
+        allPages.textContent = Math.ceil(data.totalResults / 10);
+
+
       })
       .catch((err) => {
         errorWrapper.style.display = 'block';
         error.textContent = err.message;
 
-        setTimeout(function () {
+        setTimeout(function() {
           errorWrapper.style.display = 'none';
           this.sort.disabled = 'true';
           input.disabled = 'true';
-          button.disabled = 'true';
+          searchButton.disabled = 'true';
         }, 2000);
       });
   }
 
   input.addEventListener('keydown', logKey);
+
   function logKey(e) {
     if (e.code === 'Enter') {
-      let articles = document.querySelectorAll('.article');
-      articles.forEach((n) => n.remove());
+      removeArticles();
       if (input.value.trim()) {
         defaultSearch = input.value.trim();
       }
@@ -85,14 +88,36 @@
     }
   }
 
-  button.addEventListener('click', function () {
-    let articles = document.querySelectorAll('.article');
-    articles.forEach((n) => n.remove());
+  searchButton.addEventListener('click', function() {
+    removeArticles();
     if (input.value.trim()) {
       defaultSearch = input.value.trim();
     }
     pageRender(defaultSearch, sortBy, defaultPage++);
   });
+
+
+  // ========= Pagination =============
+
+  document.querySelector('.footer__next')
+    .addEventListener('click', function() {
+
+
+      if (defaultPage < allPages.textContent) {
+        removeArticles();
+        pageRender(defaultSearch, sortBy, defaultPage++);
+      }
+    });
+
+  document.querySelector('.footer__prev')
+    .addEventListener('click', function() {
+
+      if (defaultPage > 1) {
+        removeArticles();
+        pageRender(defaultSearch, sortBy, --defaultPage);
+      }
+    });
+
 
   function publishDate(date) {
     const currentDate = new Date();
@@ -138,6 +163,28 @@
       return 'Published less than a minute';
     }
   }
+
+  // Remove isset Articles
+  function removeArticles() {
+    let articles = document.querySelectorAll('.article');
+    articles.forEach((n) => n.remove());
+  }
+
+  // Auto-scroll
+  document.querySelector('#checkbox').addEventListener('change', function() {
+    if(document.querySelector('#checkbox').checked){
+      footer.style.display = 'none';
+
+      window.addEventListener('scroll', function() {
+        let positionNewsBlock = content.getBoundingClientRect().bottom - document.documentElement.clientHeight;
+        if (positionNewsBlock <= -50) {
+          pageRender(defaultSearch, sortBy, defaultPage++);
+        }
+      });
+    }else {
+      footer.style.display = 'block';
+    }
+  });
 
   pageRender(defaultSearch, sortBy, defaultPage);
 })();

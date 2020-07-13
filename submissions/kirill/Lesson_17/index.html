@@ -4,109 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Title</title>
-  <style>
-    body {
-      background: linear-gradient(110deg, #f93d66, #6d47d9);
-    }
-
-    article {
-      margin: 50px 0;
-      padding: 20px;
-      border-radius: 10px;
-      background-color: white;
-    }
-
-    .article__inner-content {
-      display: flex;
-    }
-
-    .article__title {
-      color: black;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .article__image img {
-      margin: 10px;
-      width: 100px;
-      height: 100px;
-    }
-
-    .article__description {
-      margin-top: 10px;
-    }
-
-    .article__author,
-    .article__create-at {
-      color: grey;
-    }
-
-    .wrapper {
-      width: 800px;
-      margin: 0 auto;
-    }
-
-    .header {
-      padding: 50px 0 0 0;
-      display: grid;
-      grid-template-columns: 300px 200px 200px;
-    }
-
-    .wrapper__search {
-      display: flex;
-    }
-
-    .search__input {
-      display: flex;
-    }
-
-    .search__button {
-      text-decoration: none;
-      padding: 5px 10px;
-      background-color: white;
-      box-shadow: 1px 1px 1px black;
-    }
-
-    .footer__list {
-      display: grid;
-      grid-auto-flow: column;
-      max-width: 380px;
-      margin: 0 auto 45px auto;
-      list-style: none;
-    }
-
-    .error__wrapper {
-      display: none;
-      width: 99%;
-      height: 100%;
-      z-index: 10;
-      background-color: rgba(128, 128, 128, .4);
-      position: absolute;
-    }
-
-    .error {
-      padding: 10px;
-      margin: auto;
-      display: grid;
-      align-items: center;
-      grid-gap: 15px;
-      grid-template-columns: 50px 200px;
-      background-color: red;
-      width: 600px;
-      z-index: 5;
-      color: #eee2e2;
-      font-weight: 500;
-    }
-
-    .error__img {
-      max-width: 48px;
-    }
-
-    .error__img img {
-      width: 100%;
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="error__wrapper">
@@ -142,38 +40,26 @@
 
   <div class="content" id="content"></div>
   <footer class="footer">
-    <ul class="footer__list">
-      <li class="footer__item">
-        <button class="button-1">1</button>
-      </li>
-      <li class="footer__item">
-        <button class="button-2">2</button>
-      </li>
-      <li class="footer__item">
-        <button class="button-3">3</button>
-      </li>
-      <li class="footer__item">
-        <button class="button-4">4</button>
-      </li>
-      <li class="footer__item">
-        <button class="button-5">5</button>
-      </li>
-      <li class="footer__item">
-        <button class="button-6">6</button>
-      </li>
-      <li class="footer__item">
-        <button class="button-7">7</button>
-      </li>
-      <li class="footer__item">
-        <button class="button-8">8</button>
-      </li>
-      <li class="footer__item">
-        <button class="button-9">9</button>
-      </li>
-      <li class="footer__item">
-        <button class="button-10">10</button>
-      </li>
-    </ul>
+    <div class="footer__wrapper">
+      <div class="footer__control">
+        <button class="footer__prev footer__button">Prev</button>
+      </div>
+      <ul class="footer__list">
+        <li class="footer__item">
+          <button class="footer__button footer__button--active" id="current-page"></button>
+        </li>
+        <li class="footer__item">
+          <span>...</span>
+        </li>
+        <li class="footer__item">
+          <button class="footer__button" id="all-pages"></button>
+        </li>
+      </ul>
+      <div class="footer__control">
+        <button class="footer__next footer__button">Next</button>
+      </div>
+    </div>
+
   </footer>
 </div>
 
