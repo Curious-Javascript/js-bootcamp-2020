@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const content = document.querySelector('.content');
   const searchButton = document.querySelector('.search__button');
   const input = document.querySelector('.search__input');
@@ -13,8 +13,10 @@
   let currentPage = document.querySelector('#current-page');
   let allPages = document.querySelector('#all-pages');
 
+  // Auto-scroll
+  let autoScroll = document.querySelector('#checkbox');
 
-  sort.addEventListener('change', function() {
+  sort.addEventListener('change', function () {
     sortBy = sort.value;
     removeArticles();
     pageRender(defaultSearch, sortBy, defaultPage);
@@ -45,7 +47,7 @@
           item.urlToImage
             ? (elem.querySelector('.image').src = item.urlToImage)
             : (elem.querySelector('.image').src =
-              'https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png');
+                'https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png');
           elem.querySelector('.article__description').textContent =
             item.description;
           item.author
@@ -60,14 +62,12 @@
 
         currentPage.textContent = defaultPage;
         allPages.textContent = Math.ceil(data.totalResults / 10);
-
-
       })
       .catch((err) => {
         errorWrapper.style.display = 'block';
         error.textContent = err.message;
 
-        setTimeout(function() {
+        setTimeout(function () {
           errorWrapper.style.display = 'none';
           this.sort.disabled = 'true';
           input.disabled = 'true';
@@ -88,7 +88,7 @@
     }
   }
 
-  searchButton.addEventListener('click', function() {
+  searchButton.addEventListener('click', function () {
     removeArticles();
     if (input.value.trim()) {
       defaultSearch = input.value.trim();
@@ -96,28 +96,25 @@
     pageRender(defaultSearch, sortBy, defaultPage++);
   });
 
-
   // ========= Pagination =============
 
-  document.querySelector('.footer__next')
-    .addEventListener('click', function() {
-
-
+  document
+    .querySelector('.footer__next')
+    .addEventListener('click', function () {
       if (defaultPage < allPages.textContent) {
         removeArticles();
         pageRender(defaultSearch, sortBy, defaultPage++);
       }
     });
 
-  document.querySelector('.footer__prev')
-    .addEventListener('click', function() {
-
+  document
+    .querySelector('.footer__prev')
+    .addEventListener('click', function () {
       if (defaultPage > 1) {
         removeArticles();
         pageRender(defaultSearch, sortBy, --defaultPage);
       }
     });
-
 
   function publishDate(date) {
     const currentDate = new Date();
@@ -171,17 +168,19 @@
   }
 
   // Auto-scroll
-  document.querySelector('#checkbox').addEventListener('change', function() {
-    if(document.querySelector('#checkbox').checked){
+  autoScroll.addEventListener('change', function () {
+    if (autoScroll.checked) {
       footer.style.display = 'none';
 
-      window.addEventListener('scroll', function() {
-        let positionNewsBlock = content.getBoundingClientRect().bottom - document.documentElement.clientHeight;
-        if (positionNewsBlock <= -50) {
+      window.addEventListener('scroll', function () {
+        let positionNewsBlock =
+          content.getBoundingClientRect().bottom -
+          document.documentElement.clientHeight;
+        if (positionNewsBlock <= -50 && autoScroll.checked) {
           pageRender(defaultSearch, sortBy, defaultPage++);
         }
       });
-    }else {
+    } else {
       footer.style.display = 'block';
     }
   });
